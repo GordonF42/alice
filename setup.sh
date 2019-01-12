@@ -12,6 +12,14 @@ echo 'Alice install script'
 ################################################################################
 # INSTALL PARAMS
 ################################################################################
+function askWithDefault {
+  message="$1"
+  default="$2"
+  read -p "$message [$default]" choice
+  choice=${choice:-"$default"}
+  echo "$choice"
+}
+
 # Get target mirror
 if [ -z "$1" ]; then
   while true; do
@@ -41,6 +49,8 @@ if [ -z "$3" ]; then
 else
   EMAIL=$3
 fi
+
+UPTIMEROBOT_APIKEY=$(askWithDefault "Enter UptimeRobot main API Key (optional): " $UPTIMEROBOT_APIKEY)
 
 ################################################################################
 # INSTALL
@@ -159,6 +169,14 @@ fi
 sudo systemctl daemon-reload
 sudo systemctl enable alice alice-caddy alice-node
 sudo systemctl start alice alice-caddy alice-node
+
+
+# UptimeRobot ping monitoring
+if [[ -n $UPTIMEROBOT_APIKEY ]]; then
+  echo "Registering URL for UptimeRobot.com monitoring"
+  $(dirname $0)/scripts/uptimerobot-register.sh $UPTIMEROBOT_APIKEY "https://$HOSTNAME"
+fi
+
 
 echo "All set :)"
 echo "Visit https://$HOSTNAME"
