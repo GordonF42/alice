@@ -266,16 +266,14 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Alice is a server-side web proxy designed to host a mirror of any website. Whereas redirect-when-blocked requires the source/origin website to be modified, website-mirror-by-proxy runs separately and does not need any modification of the source/origin website. The person inside the country experiencing online censorship does not need any special software to access censored websites. Any regular browser will be able to access the Alice&#39;s dynamic mirrors. </p>
+<p>Alice is a server-side web proxy designed to host a mirror of any website. Whereas redirect-when-blocked requires the source/origin website to be modified, website-mirror-by-proxy runs separately and does not need any modification of the source/origin website.
+The Wall Street Journal beautifully illustrated our approach with one inaccuracy. The person inside the country experiencing online censorship does not need any special software to access ban sites. Any regular browser will be able to access the dynamic mirrors. </p>
 
-<p>The Alice Project was born in 2015 as part of #CollateralFreedom, a movement launched by Reporters Without Borders (RWB) for fight against censorship. Its goal? Provide an easier way to deploy proxy for people to bypass cybercensorship operated in some countries/areas.
-Why this project is named &quot;Alice&quot;? Do you remember Alice in Wonderland? The story by Lewis Carrol? Let us introduce you to Alice on the other side of the mirror!
-The first version of Alice was developed during an event at La Cantine Numérique Brest | France <a href="https://twitter.com/andaolvras">@andaolvras on Twitter</a>. The third edition in 2017 add some great features like:</p>
-<ul>
-<li>- Auto deployment via bash script</li>
-<li>- HTTPS (Thanks to Letsencrypt and Caddy Server)</li>
-<li>- Caching (Caddy PLugin)</li>
-</ul>
+<p>The Alice Project was born in 2015 as part of #CollateralFreedom, a movement launched by Reporters Without Borders (RSF) for fight against censorship. Its goal? Make easier to deploy proxy for bypass cybercensorship.
+Why this project is named &quot;Alice&quot;? Do you remember Alice in Wonderland? The story by Lewis Carrol? Let us introduce you Alice on the other side of the mirror!
+The first version of Alice was developed during an event at La Cantine Numérique Brest (France). The third edition in 2017 add some great news/developments like :
+- HTTPS
+- Auto deployment via bash script</p>
 <h1 id='technologies'>Technologies</h1>
 <p>Here are the technologies Alice is using:</p>
 
@@ -286,10 +284,8 @@ The first version of Alice was developed during an event at La Cantine Numériqu
 </ul>
 <h1 id='installation'>Installation</h1><h2 id='prerequisites'>Prerequisites</h2>
 <blockquote>
-<p>add curl to debian and first of all, update your system</p>
+<p>add curl to debian:</p>
 </blockquote>
-<pre class="highlight shell"><code>sudo apt update
-</code></pre>
 <pre class="highlight shell"><code>sudo apt-get install curl
 </code></pre>
 <p>You are going to need:</p>
@@ -323,7 +319,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </ul>
 
 <aside class="warning">
-Letsencrypt ask for an email for two reasons: to generate a SSL and for the renewal mail (as a letsencrypt certificate last for 90 days. learn more here: <a href="https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-lets-encrypt-certificates-for-how-long-are-they-valid" target="_blank">LetsEncrypt's Documentation</a> )
+Letsencrypt ask for an email for two reasons: to generate a SSL and for the renewal mail (as a letsencrypt certificate last for 90 days. learn more here: <a href="https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-lets-encrypt-certificates-for-how-long-are-they-valid" target="_blank">https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-lets-encrypt-certificates-for-how-long-are-they-valid</a> )
 </aside>
 <h1 id='administration'>Administration</h1><h2 id='configuration'>Configuration</h2>
 <blockquote>
@@ -368,23 +364,24 @@ Letsencrypt ask for an email for two reasons: to generate a SSL and for the rene
 <p>A few commands could be usefull to you: service commands. You might need them if your need to check/start/stop/restart Alice.</p>
 
 <ul>
-<li>Status allows you to check Alice status</li>
-<li>Start will start Alice :) </li>
-<li>Stop will... Do you really need explication for that?</li>
+<li>Status allow you to check Alice status (obviously)</li>
+<li>Start will start Alice (Oh?)</li>
+<li>Stop will... Oh you really need explication for that?</li>
 <li>Restart: stop then start again</li>
 </ul>
 
-<p>However if Alice stops working, you might want to know why it stopped.</p>
+<p>However if Alice stop working, you might want to know why it stoped.</p>
 <h2 id='logs'>Logs</h2>
 <blockquote>
 <p>There are 2 logs files. One for Alice, the other for Caddy. They are set there:</p>
 </blockquote>
-<pre class="highlight shell"><code>/usr/share/alice/app/app.log
+<pre class="highlight shell"><code>/var/log/alice.log
 /var/log/caddy.log
 </code></pre>
-<p>Two log files are available: one for Alice-Node itself, one for Caddy. We have a Caddy log file because it is our base web server.</p>
+<p>Two log files are available: one for Alice itself, one for Caddy. We have a Caddy log file because it is our base web server.</p>
 <h1 id='annexe'>Annexe</h1><h2 id='to-do'>To do</h2>
-<p>Join the following Github Repo > <a href="https://github.com/NInfolab/alice">https://github.com/NInfolab/alice</a>
+<p>We&#39;d like to improve this project. Heres what we&#39;d like to do (or what you can do ;) ):</p>
+
 <ul>
 <li>add mirror script: use the same Alice service to deliver another mirror on a different domain.</li>
 </ul>
